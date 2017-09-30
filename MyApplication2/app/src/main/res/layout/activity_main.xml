@@ -1,67 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView android:layout_height="match_parent"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android" >
+    android:layout_height="match_parent"
+    android:background="@drawable/back"
+    android:orientation="vertical">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".activities.MainActivity"
-        android:background="#FDDD63">
+        android:background="@drawable/back"
+        android:orientation="vertical"
+        android:weightSum="22">
 
-        <TimePicker
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/timepicker"
-            android:numbersBackgroundColor="#A3D05F"
-            android:numbersSelectorColor="@color/colorPrimary" />
+            android:layout_height="0dp"
+            android:layout_weight="1.5"
+            android:orientation="horizontal">
 
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:src="@drawable/icon_back" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/bt_start"
-            android:text="Đặt"
-            android:layout_below="@+id/tv_timePicker"
-            android:layout_centerHorizontal="true"
-            android:background="#A3D05F"
-            android:layout_marginTop="20dp"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="3.00"
+                android:text="New Alarm"
+                android:textAlignment="center"
+                android:textColor="@color/colorTextWhite"
+                android:textSize="@dimen/text_size_20sp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tv_timePicker"
-            android:hint="00:00"
-            android:layout_margin="30dp"
-            android:textSize="50sp"
-            android:layout_below="@+id/timepicker"
-            android:layout_centerHorizontal="true"
-            android:textColor="#101F2C"
-            />
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:src="@drawable/icon_done" />
+        </LinearLayout>
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Kéo xuống để đặt báo thức"
-            android:textSize="16sp"
-            android:layout_above="@+id/bt_start"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:gravity="center_horizontal"
-            android:padding="10dp"/>
+            android:layout_height="0dp"
+            android:layout_weight="12">
 
-        <TextView
+            <TimePicker
+                android:id="@+id/timepicker"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:timePickerMode="clock" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Bạn hãy suy nghĩ kỹ trước khi ấn Đặt, Bạn sẽ không thể xóa giờ báo thức sau khi đã đặt"
-            android:layout_below="@+id/bt_start"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:padding="20dp"/>
+            android:layout_height="0dp"
+            android:layout_weight="1.5"
+            android:orientation="horizontal">
 
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/tv_timePicker"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="3:20"
+                android:textAlignment="center"
+                android:textColor="@color/colorTextWhite"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/bt_start"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Set" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="2"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_configalarm_marginStart"
+                android:text="Ringtone"
+                android:textColor="@color/colorTextWhite"
+                android:textSize="@dimen/text_size_20sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spinner_music"
+                android:layout_width="@dimen/element_alarmconfig_width"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_name" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_configalarm_marginStart"
+                android:text="Topic"
+                android:textColor="@color/colorTextWhite"
+                android:textSize="@dimen/text_size_20sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spinner_topic"
+                android:layout_width="@dimen/element_alarmconfig_width"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/array_name" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_configalarm_marginStart"
+                android:text="Volume"
+                android:textColor="@color/colorTextWhite"
+                android:textSize="@dimen/text_size_20sp"
+                android:textStyle="bold" />
+
+            <SeekBar
+                android:id="@+id/sb_vollume"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:src="@drawable/icon_back" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:src="@drawable/icon_done" />
+        </LinearLayout>
+    </LinearLayout>
 </ScrollView>
-
