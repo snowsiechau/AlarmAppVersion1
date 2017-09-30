@@ -17,9 +17,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/timepicker"
             android:numbersBackgroundColor="#A3D05F"
-            android:numbersSelectorColor="@color/colorPrimary"
-
-            />
+            android:numbersSelectorColor="@color/colorPrimary" />
 
 
         <Button
