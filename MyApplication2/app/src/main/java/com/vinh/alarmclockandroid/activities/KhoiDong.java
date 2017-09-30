@@ -3,6 +3,7 @@ package com.vinh.alarmclockandroid.activities;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -46,8 +47,6 @@ public class KhoiDong extends AppCompatActivity {
             public void onClick(View v) {
                // layoutAlarmInfo.setVisibility(View.INVISIBLE);
 
-
-
                 if(isOnline){
                     ivSwitchOn.setImageResource(R.drawable.icon_switch_on);
                     layoutAlarmInfo.setVisibility(View.VISIBLE);
@@ -62,4 +61,6 @@ public class KhoiDong extends AppCompatActivity {
         });
 
     }
+
+
 }

@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.MainActivity"
-    android:background="@drawable/back">
-
+    android:background="@drawable/back"
+    tools:context=".activities.MainActivity">
 
 
     <android.support.constraint.Guideline
@@ -30,68 +29,66 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.55" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="219dp"
-        android:layout_height="211dp"
+    <AnalogClock
+        android:id="@+id/analog_clock"
+        android:layout_width="164dp"
+        android:layout_height="155dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/image_clock"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline"
-        android:src="@drawable/image_clock"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintVertical_bias="0.476"
-        app:layout_constraintHorizontal_bias="0.506"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        tools:layout_editor_absoluteY="68dp" />
+        app:layout_constraintVertical_bias="0.271" />
 
 
     <!--<at.markushi.ui.CircleButton-->
-        <!--android:id="@+id/imageButton"-->
-        <!--android:layout_width="50dp"-->
-        <!--android:layout_height="50dp"-->
-        <!--android:src="@drawable/icon_setting_white"-->
-        <!--app:cb_color="#99CC00"-->
-        <!--app:cb_pressedRingWidth="8dip"-->
-        <!--app:layout_constraintTop_toTopOf="@+id/guideline"-->
-        <!--android:layout_marginTop="16dp"-->
-        <!--android:layout_marginLeft="16dp"-->
-        <!--app:layout_constraintLeft_toLeftOf="parent"-->
-        <!--android:layout_marginStart="16dp" />-->
+    <!--android:id="@+id/imageButton"-->
+    <!--android:layout_width="50dp"-->
+    <!--android:layout_height="50dp"-->
+    <!--android:src="@drawable/icon_setting_white"-->
+    <!--app:cb_color="#99CC00"-->
+    <!--app:cb_pressedRingWidth="8dip"-->
+    <!--app:layout_constraintTop_toTopOf="@+id/guideline"-->
+    <!--android:layout_marginTop="16dp"-->
+    <!--android:layout_marginLeft="16dp"-->
+    <!--app:layout_constraintLeft_toLeftOf="parent"-->
+    <!--android:layout_marginStart="16dp" />-->
 
     <!--<at.markushi.ui.CircleButton-->
-        <!--android:id="@+id/circleButton"-->
-        <!--android:layout_width="50dp"-->
-        <!--android:layout_height="50dp"-->
-        <!--android:layout_marginRight="16dp"-->
-        <!--android:layout_marginTop="16dp"-->
-        <!--android:src="@drawable/icon_add"-->
-        <!--app:cb_color="#99CC00"-->
-        <!--app:cb_pressedRingWidth="8dip"-->
-        <!--app:layout_constraintRight_toRightOf="parent"-->
-        <!--app:layout_constraintTop_toTopOf="@+id/guideline"-->
-        <!--android:layout_marginEnd="16dp" />-->
+    <!--android:id="@+id/circleButton"-->
+    <!--android:layout_width="50dp"-->
+    <!--android:layout_height="50dp"-->
+    <!--android:layout_marginRight="16dp"-->
+    <!--android:layout_marginTop="16dp"-->
+    <!--android:src="@drawable/icon_add"-->
+    <!--app:cb_color="#99CC00"-->
+    <!--app:cb_pressedRingWidth="8dip"-->
+    <!--app:layout_constraintRight_toRightOf="parent"-->
+    <!--app:layout_constraintTop_toTopOf="@+id/guideline"-->
+    <!--android:layout_marginEnd="16dp" />-->
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Time to wake UP - 6:39"
-        app:layout_constraintTop_toTopOf="@+id/guideline3"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        android:textColor="@color/colorTextWhite"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp" />
+        android:layout_marginTop="8dp"
+        android:text="Time to wake UP - 6:39"
+        android:textColor="@color/colorTextWhite"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
     <RelativeLayout
         android:layout_width="0dp"
@@ -122,20 +119,20 @@
             android:id="@+id/tv_guide"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Guide"
-            android:textColor="@color/colorTextWhite"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
+            android:layout_marginBottom="8dp"
             android:layout_marginEnd="17dp"
-            android:layout_marginBottom="8dp"/>
+            android:text="Guide"
+            android:textColor="@color/colorTextWhite" />
 
         <at.markushi.ui.CircleButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/icon_help_guide"
             android:layout_above="@id/tv_guide"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="15dp"/>
+            android:layout_marginEnd="15dp"
+            android:src="@drawable/icon_help_guide" />
 
         <RelativeLayout
             android:id="@+id/layout_alarm_information"
@@ -185,5 +182,28 @@
 
 
     </RelativeLayout>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.45" />
+
+    <TextClock
+        android:id="@+id/textClock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@+id/guideline4"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textSize="@dimen/text_size_20sp"
+        android:textColor="#f9ffa9"
+        app:layout_constraintVertical_bias="0.0" />
 
 </android.support.constraint.ConstraintLayout>
