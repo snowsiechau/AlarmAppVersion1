@@ -19,7 +19,7 @@ import com.vinh.alarmclockandroid.R;
  * Created by Admin on 9/23/2017.
  */
 
-public class BackgroundMusic extends Service{
+public class BackgroundMusic extends Service {
 
     MediaPlayer mediaPlayer;
 
@@ -61,7 +61,7 @@ public class BackgroundMusic extends Service{
                 .setTicker("Trả lời câu hỏi để emeeii")
                 .setContentTitle("Bấm để tắt báo thức")
                 .setContentText("Trả lời đúng 3 câu mới tắt được")
-                .setDefaults(Notification.DEFAULT_LIGHTS| Notification.DEFAULT_SOUND)
+                .setDefaults(Notification.DEFAULT_LIGHTS | Notification.DEFAULT_SOUND)
                 .setContentIntent(contentIntent)
                 .setContentInfo("Info");
 

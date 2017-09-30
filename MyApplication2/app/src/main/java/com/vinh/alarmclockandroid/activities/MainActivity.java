@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 //        DatabaseHandle.getInstance(this).insertTable();
 
-        Log.d("list", "onCreate: " + DatabaseHandle.getInstance(this).getListGioBaoThuc().size());
+        //Log.d("list", "onCreate: " + DatabaseHandle.getInstance(this).getListGioBaoThuc().size());
 
         loadUI();
         timePicker.setIs24HourView(true);
@@ -110,9 +110,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnStart = (Button) findViewById(R.id.bt_start);
         tvTimePicker = (TextView) findViewById(R.id.tv_timePicker);
         timePicker = (TimePicker) findViewById(R.id.timepicker);
-
-
-
     }
 
     MediaPlayer mediaPlayer;

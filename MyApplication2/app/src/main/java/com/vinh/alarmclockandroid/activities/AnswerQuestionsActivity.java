@@ -33,9 +33,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class AnswerQuestionsActivity extends AppCompatActivity implements View.OnClickListener{
+public class AnswerQuestionsActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private static final String TAG = AnswerQuestionsActivity.class.toString() ;
+    private static final String TAG = AnswerQuestionsActivity.class.toString();
     ProgressBar mProgressBar;
     CountDownTimer mCountDownTimer;
     int i = 0;
@@ -63,7 +63,7 @@ public class AnswerQuestionsActivity extends AppCompatActivity implements View.O
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_answer_questions);
+        setContentView(R.layout.activity_answer_questions_fake);
 
         startAniamtion();
         setupUI();
@@ -86,16 +86,13 @@ public class AnswerQuestionsActivity extends AppCompatActivity implements View.O
         });
 
 
-
 //        kiemTraSoCauTraLoiDung();
     }
 
 
     private void kiemTraSoCauTraLoiDung() {
-        while (kiemTra)
-        {
-            if (soCauTraLoiDung == 3)
-            {
+        while (kiemTra) {
+            if (soCauTraLoiDung == 3) {
                 Toast.makeText(this, "Bạn đã trả lời được đủ 3 câu", Toast.LENGTH_SHORT).show();
                 kiemTra = false;
             }
@@ -111,7 +108,7 @@ public class AnswerQuestionsActivity extends AppCompatActivity implements View.O
             @Override
             public void onTick(long millisUntilFinished) {
                 boqua_btn.setText("Bỏ qua(15 giây)");
-                int soGiayBoQua = (int) millisUntilFinished/1000;
+                int soGiayBoQua = (int) millisUntilFinished / 1000;
                 boqua_btn.setText(String.format("Bỏ qua(%s giây)", soGiayBoQua));
             }
 
@@ -189,8 +186,7 @@ public class AnswerQuestionsActivity extends AppCompatActivity implements View.O
 
     @Override
     public void onClick(View view) {
-        switch (view.getId())
-        {
+        switch (view.getId()) {
             case R.id.traloi_btn:
                 Log.d(TAG, "onClick: " + quizModel.getRealalswer());
                 xulyCauTraLoi();
@@ -204,35 +200,25 @@ public class AnswerQuestionsActivity extends AppCompatActivity implements View.O
     private void xulyCauTraLoi() {
         int cauTraLoi = 0;
 
-        if (dapanA_rb.isChecked())
-        {
+        if (dapanA_rb.isChecked()) {
             cauTraLoi = 1;
-        }
-        else if (dapanB_rb.isChecked())
-        {
+        } else if (dapanB_rb.isChecked()) {
             cauTraLoi = 2;
-        }
-        else if (dapanC_rb.isChecked())
-        {
+        } else if (dapanC_rb.isChecked()) {
             cauTraLoi = 3;
-        }
-        else if (dapanD_rb.isChecked())
-        {
+        } else if (dapanD_rb.isChecked()) {
             cauTraLoi = 4;
         }
 
         Log.d(TAG, "xulyCauTraLoi: " + quizModel.getRealalswer());
-        
-        if (cauTraLoi == quizModel.getRealalswer())
-        {
+
+        if (cauTraLoi == quizModel.getRealalswer()) {
             Toast.makeText(this, "Bạn trả lời đúng rồi", Toast.LENGTH_SHORT).show();
             Log.d(TAG, "Bạn trả lời đúng rồi");
             chuyenCauHoi();
             soCauTraLoiDung++;
 
-        }
-        else
-        {
+        } else {
             Toast.makeText(this, "Bạn trả lời sai rồi", Toast.LENGTH_SHORT).show();
             Log.d(TAG, "Bạn trả lời sai rồi");
             chuyenCauHoi();
@@ -249,16 +235,16 @@ public class AnswerQuestionsActivity extends AppCompatActivity implements View.O
 
         int n;
 
-        while (true){
+        while (true) {
             boolean khongtrung = true;
             n = rand.nextInt(15) + 0;
-            for (int i = 0; i < idCauhoi.size() - 1; i++){
-                if (quizList.get(i).getId() == quizList.get(n).getId()){
+            for (int i = 0; i < idCauhoi.size() - 1; i++) {
+                if (quizList.get(i).getId() == quizList.get(n).getId()) {
                     khongtrung = false;
                 }
             }
 
-            if (khongtrung){
+            if (khongtrung) {
                 break;
             }
         }
@@ -280,8 +266,7 @@ public class AnswerQuestionsActivity extends AppCompatActivity implements View.O
         dapanC_rb.setText(quizModel.getAnswerc());
         dapanD_rb.setText(quizModel.getAnswerd());
 
-        if (soCauTraLoiDung == 2)
-        {
+        if (soCauTraLoiDung == 2) {
             Toast.makeText(this, "Bạn đã trả lời được đúng 3 câu", Toast.LENGTH_SHORT).show();
             stopService(new Intent(AnswerQuestionsActivity.this, BackgroundMusic.class));
             android.os.Process.killProcess(android.os.Process.myPid());

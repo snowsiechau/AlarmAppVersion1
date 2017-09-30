@@ -118,13 +118,24 @@
             android:layout_margin="8dp"
             android:src="@drawable/icon_switch_on" />
 
-        <ImageView
+        <TextView
+            android:id="@+id/tv_guide"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Guide"
+            android:textColor="@color/colorTextWhite"
+            android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
-            android:layout_below="@id/iv_switch_on"
-            android:layout_margin="8dp"
-            android:src="@drawable/icon_switch_off" />
+            android:layout_marginEnd="17dp"
+            android:layout_marginBottom="8dp"/>
+
+        <at.markushi.ui.CircleButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_help_guide"
+            android:layout_above="@id/tv_guide"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="15dp"/>
 
         <RelativeLayout
             android:id="@+id/layout_alarm_information"
