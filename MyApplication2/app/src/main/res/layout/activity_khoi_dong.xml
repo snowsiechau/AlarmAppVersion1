@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#e1c627">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.vinh.alarmclockandroid.activities.KhoiDong">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Đã không biết bao nhiêu lần bạn định xắn tay vào học nhưng rồi vẫn chưa thực hiện được. Lên kế hoạch là sáng chủ nhật sẽ học code nhưng sáng thì bận đi họp nhóm, sáng thì phải về thăm gia đình, sáng thì lại vướng cái hội thảo học kỹ năng thuyết trình hấp dẫn…Vậy là căn phòng của bạn vẫn nguyên trạng từ tuần này sang tuần khác."
+            android:textColor="#f000"
+            android:textSize="20sp"
+            android:gravity="center_horizontal"
+            android:padding="20dp"
+            android:fontFamily="serif"/>
+
+        <Button
+            android:id="@+id/batdau_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#f000"
+            android:text="Bắt đầu"
+            android:layout_margin="20dp"
+            android:textColor="#fff"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="#002856"/>
+
+
+    </LinearLayout>
+</ScrollView>
