@@ -94,6 +94,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         intentDatBaoThucThanhCong = new Intent(getApplicationContext(), DatBaoThucThanhCong.class);
 
+
+
     }
 
     private void addSpiner() {
@@ -144,24 +146,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnStart = (Button) findViewById(R.id.bt_start);
         tvTimePicker = (TextView) findViewById(R.id.tv_timePicker);
         timePicker = (TimePicker) findViewById(R.id.timepicker);
-        // btnStop = (Button) findViewById(R.id.bt_stop);
+//        btnStop = (Button) findViewById(R.id.bt_stop);
 
         quizList = DatabaseHandle.getInstance(this).getListGioBaoThuc();
+        String gio = "";
+        String phut = "";
+if (quizList.size() != 0) {
+    gio = String.valueOf(quizList.get(0).getHour());
+    phut = String.valueOf(quizList.get(0).getMinute());
 
-        String gio = String.valueOf(quizList.get(0).getHour());
-        String phut = String.valueOf(quizList.get(0).getMinute());
+    if (quizList.get(0).getHour() < 10) {
+        gio = "0" + gio;
+    }
 
-        if (quizList.get(0).getHour() < 10){
-            gio = "0" + gio;
-        }
+    if (quizList.get(0).getMinute() < 10) {
+        phut = "0" + phut;
+    }
 
-        if (quizList.get(0).getMinute() < 10){
-            phut = "0" + phut;
-        }
-
-        if (quizList.size() != 0) {
-            tvTimePicker.setText(gio + " : " + phut);
-        }
+    if (quizList.size() != 0) {
+        tvTimePicker.setText(gio + " : " + phut);
+    }
+}
 
     }
 

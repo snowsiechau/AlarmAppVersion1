@@ -14,6 +14,8 @@ import java.util.Date;
 
 public class AlarmHandle {
 
+    public static PendingIntent pendingIntent;
+
     public static void setAlarm(int hour, int minute, Context context, int ngayCach)
     {
         Calendar calendar = Calendar.getInstance();
@@ -25,7 +27,7 @@ public class AlarmHandle {
 
         Intent alarmShowIntent = new Intent(context, AlarmReceiver.class);
 
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(
+        pendingIntent = PendingIntent.getBroadcast(
                 context, 0, alarmShowIntent , PendingIntent.FLAG_UPDATE_CURRENT
         );
 
