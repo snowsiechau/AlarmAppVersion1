@@ -48,19 +48,12 @@ public class DatabaseHandle {
         while (!cursor.isAfterLast())
         {
             // get data
-            int id = cursor.getInt(0);
-            int hour = cursor.getInt(1);
-            int minute = cursor.getInt(2);
-            int so1 = cursor.getInt(3);
-            int so2 = cursor.getInt(4);
-            int so3 = cursor.getInt(5);
-            int so4 = cursor.getInt(6);
-            int so5 = cursor.getInt(7);
-            int so6 = cursor.getInt(8);
-            int so7 = cursor.getInt(9);
-            int status = cursor.getInt(10);
+            int hour = cursor.getInt(0);
+            int minute = cursor.getInt(1);
+            int status = cursor.getInt(2);
+            int topic = cursor.getInt(3);
 
-            GioBaoThucModel quizModel = new GioBaoThucModel(id, hour, minute, so1, so2, so3, so4, so5, so6, so7, status);
+            GioBaoThucModel quizModel = new GioBaoThucModel(hour, minute, status, topic);
             gioBaoThucModelList.add(quizModel);
 
             //next cursor
@@ -71,26 +64,16 @@ public class DatabaseHandle {
         return gioBaoThucModelList;
     }
 
-    public void insertTable(){
+    public void insertTable(int gio, int phut, int status, int topic){
         sqLiteDatabase = myDatabase.getWritableDatabase();
 
-        sqLiteDatabase.execSQL("insert into giobaothuc values (1230,12,30,1,0,1,0,1,0,1,1)");
+        sqLiteDatabase.execSQL("insert into giobaothuc values (" + gio + "," + phut + "," + status + "," + topic + ")");
 
-//        ContentValues contentValues = new ContentValues();
-//
-//        contentValues.put("id", 2030);
-//        contentValues.put("hour", 20);
-//        contentValues.put("minute", 30);
-//        contentValues.put("mot", 1);
-//        contentValues.put("hai", 1);
-//        contentValues.put("ba", 1);
-//        contentValues.put("bon", 1);
-//        contentValues.put("nam", 1);
-//        contentValues.put("sau", 1);
-//        contentValues.put("bay", 1);
-//        contentValues.put("status", 1);
-//
-//        sqLiteDatabase.insert("giobaothuc", null, contentValues);
+    }
+
+    public void deleteTable(){
+        sqLiteDatabase = myDatabase.getWritableDatabase();
+        sqLiteDatabase.execSQL("delete from giobaothuc");
     }
 
     public void setBookmark(GioBaoThucModel gioBaoThucModel, int status)
@@ -105,6 +88,6 @@ public class DatabaseHandle {
         {
             contentValues.put("status", 0);
         }
-        sqLiteDatabase.update("giobaothuc", contentValues, "id = ?", new String[]{String.valueOf(gioBaoThucModel.getId())});
+//        sqLiteDatabase.update("giobaothuc", contentValues, "id = ?", new String[]{String.valueOf(gioBaoThucModel.getId())});
     }
 }

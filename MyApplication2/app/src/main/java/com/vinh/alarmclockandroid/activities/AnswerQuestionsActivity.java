@@ -33,9 +33,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class AnswerQuestionsActivity extends AppCompatActivity implements View.OnClickListener {
+import static com.vinh.alarmclockandroid.activities.MainActivity.topic;
 
-    private static final String TAG = AnswerQuestionsActivity.class.toString();
+public class AnswerQuestionsActivity extends AppCompatActivity implements View.OnClickListener{
+
+    private static final String TAG = AnswerQuestionsActivity.class.toString() ;
     ProgressBar mProgressBar;
     CountDownTimer mCountDownTimer;
     int i = 0;
@@ -58,7 +60,6 @@ public class AnswerQuestionsActivity extends AppCompatActivity implements View.O
 
     MediaPlayer mediaPlayer;
 
-    ArrayList<Integer> idCauhoi = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,13 +87,16 @@ public class AnswerQuestionsActivity extends AppCompatActivity implements View.O
         });
 
 
+
 //        kiemTraSoCauTraLoiDung();
     }
 
 
     private void kiemTraSoCauTraLoiDung() {
-        while (kiemTra) {
-            if (soCauTraLoiDung == 3) {
+        while (kiemTra)
+        {
+            if (soCauTraLoiDung == 3)
+            {
                 Toast.makeText(this, "Bạn đã trả lời được đủ 3 câu", Toast.LENGTH_SHORT).show();
                 kiemTra = false;
             }
@@ -108,7 +112,7 @@ public class AnswerQuestionsActivity extends AppCompatActivity implements View.O
             @Override
             public void onTick(long millisUntilFinished) {
                 boqua_btn.setText("Bỏ qua(15 giây)");
-                int soGiayBoQua = (int) millisUntilFinished / 1000;
+                int soGiayBoQua = (int) millisUntilFinished/1000;
                 boqua_btn.setText(String.format("Bỏ qua(%s giây)", soGiayBoQua));
             }
 
@@ -142,6 +146,8 @@ public class AnswerQuestionsActivity extends AppCompatActivity implements View.O
 
     private void loadData() {
 
+
+
         quizList = DatabaseHandle.getInstance(this).getListQuiz();
 
         Random rand = new Random();
@@ -152,12 +158,59 @@ public class AnswerQuestionsActivity extends AppCompatActivity implements View.O
 
         Log.d(TAG, "loadData: " + quizModel.getQuestion());
 
-        noidungcauhoi_tv.setText(quizModel.getQuestion());
+        Log.d("topic", "topic: " + topic);
 
-        dapanA_rb.setText(quizModel.getAnswera());
-        dapanB_rb.setText(quizModel.getAnswerb());
-        dapanC_rb.setText(quizModel.getAnswerc());
-        dapanD_rb.setText(quizModel.getAnswerd());
+        if (topic == 1)
+        {
+            if (quizModel.getJob() == 1)
+            {
+                noidungcauhoi_tv.setText(quizModel.getQuestion());
+
+                dapanA_rb.setText(quizModel.getAnswera());
+                dapanB_rb.setText(quizModel.getAnswerb());
+                dapanC_rb.setText(quizModel.getAnswerc());
+                dapanD_rb.setText(quizModel.getAnswerd());
+            }
+            else
+            {
+                loadData();
+            }
+        }
+        else if (topic == 2)
+        {
+            if (quizModel.getJob() == 2)
+            {
+                Log.d(TAG, "loadData: " + quizModel.getQuestion());
+                noidungcauhoi_tv.setText(quizModel.getQuestion());
+
+                dapanA_rb.setText(quizModel.getAnswera());
+                dapanB_rb.setText(quizModel.getAnswerb());
+                dapanC_rb.setText(quizModel.getAnswerc());
+                dapanD_rb.setText(quizModel.getAnswerd());
+            }
+            else
+            {
+                loadData();
+            }
+        }
+        else if (topic == 3)
+        {
+            if (quizModel.getJob() == 3)
+            {
+                Log.d(TAG, "loadData: " + quizModel.getQuestion());
+                noidungcauhoi_tv.setText(quizModel.getQuestion());
+
+                dapanA_rb.setText(quizModel.getAnswera());
+                dapanB_rb.setText(quizModel.getAnswerb());
+                dapanC_rb.setText(quizModel.getAnswerc());
+                dapanD_rb.setText(quizModel.getAnswerd());
+            }
+            else
+            {
+                loadData();
+            }
+        }
+
     }
 
     private void setupUI() {
@@ -186,7 +239,8 @@ public class AnswerQuestionsActivity extends AppCompatActivity implements View.O
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
+        switch (view.getId())
+        {
             case R.id.traloi_btn:
                 Log.d(TAG, "onClick: " + quizModel.getRealalswer());
                 xulyCauTraLoi();
@@ -200,25 +254,35 @@ public class AnswerQuestionsActivity extends AppCompatActivity implements View.O
     private void xulyCauTraLoi() {
         int cauTraLoi = 0;
 
-        if (dapanA_rb.isChecked()) {
+        if (dapanA_rb.isChecked())
+        {
             cauTraLoi = 1;
-        } else if (dapanB_rb.isChecked()) {
+        }
+        else if (dapanB_rb.isChecked())
+        {
             cauTraLoi = 2;
-        } else if (dapanC_rb.isChecked()) {
+        }
+        else if (dapanC_rb.isChecked())
+        {
             cauTraLoi = 3;
-        } else if (dapanD_rb.isChecked()) {
+        }
+        else if (dapanD_rb.isChecked())
+        {
             cauTraLoi = 4;
         }
 
         Log.d(TAG, "xulyCauTraLoi: " + quizModel.getRealalswer());
-
-        if (cauTraLoi == quizModel.getRealalswer()) {
+        
+        if (cauTraLoi == quizModel.getRealalswer())
+        {
             Toast.makeText(this, "Bạn trả lời đúng rồi", Toast.LENGTH_SHORT).show();
             Log.d(TAG, "Bạn trả lời đúng rồi");
             chuyenCauHoi();
             soCauTraLoiDung++;
 
-        } else {
+        }
+        else
+        {
             Toast.makeText(this, "Bạn trả lời sai rồi", Toast.LENGTH_SHORT).show();
             Log.d(TAG, "Bạn trả lời sai rồi");
             chuyenCauHoi();
@@ -229,48 +293,35 @@ public class AnswerQuestionsActivity extends AppCompatActivity implements View.O
     private void chuyenCauHoi() {
         AudioManager audioManager;
         audioManager = (AudioManager) getSystemService(MainActivity.AUDIO_SERVICE);
-        audioManager.setStreamVolume(audioManager.STREAM_MUSIC, 15, AudioManager.FLAG_ALLOW_RINGER_MODES);
+        audioManager.setStreamVolume(audioManager.STREAM_MUSIC, 2, AudioManager.FLAG_ALLOW_RINGER_MODES);
 
         Random rand = new Random();
-
         int n;
+        int job = 1;
 
-        while (true) {
-            boolean khongtrung = true;
+        do{
             n = rand.nextInt(15) + 0;
-            for (int i = 0; i < idCauhoi.size() - 1; i++) {
-                if (quizList.get(i).getId() == quizList.get(n).getId()) {
-                    khongtrung = false;
-                }
-            }
-
-            if (khongtrung) {
-                break;
-            }
-        }
-
-        quizModel = quizList.get(n);
-        idCauhoi.add(quizModel.getId());
-
-        Log.d(TAG, "loadData: " + quizModel.getQuestion());
+        }while (quizList.get(n).getJob() != job);
 
         countDownBoQua.cancel();
         countDownTraLoi.cancel();
         startCountDownTimer();
         startAniamtion();
 
-        noidungcauhoi_tv.setText(quizModel.getQuestion());
+//        noidungcauhoi_tv.setText(quizModel.getQuestion());
+//
+//        dapanA_rb.setText(quizModel.getAnswera());
+//        dapanB_rb.setText(quizModel.getAnswerb());
+//        dapanC_rb.setText(quizModel.getAnswerc());
+//        dapanD_rb.setText(quizModel.getAnswerd());
 
-        dapanA_rb.setText(quizModel.getAnswera());
-        dapanB_rb.setText(quizModel.getAnswerb());
-        dapanC_rb.setText(quizModel.getAnswerc());
-        dapanD_rb.setText(quizModel.getAnswerd());
+        loadData();
 
-        if (soCauTraLoiDung == 2) {
+        if (soCauTraLoiDung == 2)
+        {
             Toast.makeText(this, "Bạn đã trả lời được đúng 3 câu", Toast.LENGTH_SHORT).show();
             stopService(new Intent(AnswerQuestionsActivity.this, BackgroundMusic.class));
-            android.os.Process.killProcess(android.os.Process.myPid());
-            android.os.Process.killProcess(android.os.Process.myPid());
+
         }
     }
 }
