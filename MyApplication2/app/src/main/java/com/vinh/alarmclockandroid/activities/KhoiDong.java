@@ -72,12 +72,17 @@ public class KhoiDong extends AppCompatActivity {
                     layoutAlarmInfo.setVisibility(View.VISIBLE);
                     quizList = DatabaseHandle.getInstance(getApplicationContext()).getListGioBaoThuc();
                     isOnline = false;
-                    AlarmHandle.setAlarm(quizList.get(0).getHour(), quizList.get(0).getMinute(), getApplicationContext(), 1);
+                    if (quizList.size() != 0) {
+                        AlarmHandle.setAlarm(quizList.get(0).getHour(), quizList.get(0).getMinute(), getApplicationContext(), 1);
+                    }
                 } else {
                     ivSwitchOn.setImageResource(R.drawable.icon_switch_off);
                     layoutAlarmInfo.setVisibility(View.INVISIBLE);
                     isOnline = true;
-                    AlarmHandle.pendingIntent.cancel();
+
+                    if(AlarmHandle.pendingIntent != null) {
+                        AlarmHandle.pendingIntent.cancel();
+                    }
                 }
 
             }
@@ -86,7 +91,9 @@ public class KhoiDong extends AppCompatActivity {
         btn_xoa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlarmHandle.pendingIntent.cancel();
+                if (AlarmHandle.pendingIntent != null) {
+                    AlarmHandle.pendingIntent.cancel();
+                }
                 DatabaseHandle.getInstance(getApplicationContext()).deleteTable();
                 tvAlarmTime.setText("NO Alarm !");
                 tvTopic.setText("");
