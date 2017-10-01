@@ -29,5 +29,7 @@ dependencies {
     compile 'com.readystatesoftware.sqliteasset:sqliteassethelper:+'
     compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.+'
     compile 'com.github.markushi:circlebutton:1.1'
+    //analog clock
+    compile 'com.tomerrosenfeld.customanalogclockview:custom-analog-clock-view:1.1'
     testCompile 'junit:junit:4.12'
 }

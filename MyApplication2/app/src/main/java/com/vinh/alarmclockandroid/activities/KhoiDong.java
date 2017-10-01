@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import com.tomerrosenfeld.customanalogclockview.CustomAnalogClock;
 import com.vinh.alarmclockandroid.R;
 
 public class KhoiDong extends AppCompatActivity {
@@ -33,6 +34,9 @@ public class KhoiDong extends AppCompatActivity {
         ivSwitchOn = (ImageView) findViewById(R.id.iv_switch_on);
         layoutAlarmInfo = (RelativeLayout) findViewById(R.id.layout_alarm_information);
 
+        //custom analog
+        CustomAnalogClock customAnalogClock = (CustomAnalogClock) findViewById(R.id.analog_clock);
+        customAnalogClock.setAutoUpdate(true);
 
         //batdau_btn = (Button) findViewById(R.id.batdau_btn);
         batdau_iv.setOnClickListener(new View.OnClickListener() {
