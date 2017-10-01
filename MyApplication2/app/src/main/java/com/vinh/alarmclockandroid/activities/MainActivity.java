@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     Intent intentDatBaoThucThanhCong;
 
-    public static int topic;
+    private int topic;
 
     private GioBaoThucModel quizModel;
 
@@ -148,8 +148,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         quizList = DatabaseHandle.getInstance(this).getListGioBaoThuc();
 
+        String gio = String.valueOf(quizList.get(0).getHour());
+        String phut = String.valueOf(quizList.get(0).getMinute());
+
+        if (quizList.get(0).getHour() < 10){
+            gio = "0" + gio;
+        }
+
+        if (quizList.get(0).getMinute() < 10){
+            phut = "0" + phut;
+        }
+
         if (quizList.size() != 0) {
-            tvTimePicker.setText(quizList.get(0).getHour() + " : " + quizList.get(0).getMinute());
+            tvTimePicker.setText(gio + " : " + phut);
         }
 
     }
@@ -205,7 +216,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     minuteTimewakeup_string = "0" + minuteTimewakeup_string;
                 }
 
-                Toast.makeText(MainActivity.this, "Time to Wake up: " + hourTimewakeup_string + " hours, " + minuteTimewakeup_string + " minutes ", Toast.LENGTH_SHORT).show();
+                if(totalMinuteTimewakeup ==0){
+                    Toast.makeText(MainActivity.this,"Time to Wake up: 24 hours!",Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(MainActivity.this, "Time to Wake up: " + hourTimewakeup_string + " hours, " + minuteTimewakeup_string + " minutes ", Toast.LENGTH_SHORT).show();
+                }
 
                 setAlarmDate();
                 DatabaseHandle.getInstance(this).deleteTable();

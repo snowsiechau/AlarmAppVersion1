@@ -125,6 +125,7 @@
                 android:textSize="74sp" />
 
             <TextView
+                android:id="@+id/tv_topic"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_alarmtime"
