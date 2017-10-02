@@ -36,6 +36,7 @@ import java.util.Random;
 
 
 public class AnswerQuestionsActivity extends AppCompatActivity implements View.OnClickListener {
+    TextView textViewSequenceAnswer;
 
 
     private static final String TAG = AnswerQuestionsActivity.class.toString();
@@ -191,6 +192,8 @@ public class AnswerQuestionsActivity extends AppCompatActivity implements View.O
 
         mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
 
+        textViewSequenceAnswer = (TextView) findViewById(R.id.tv_sequence_done_answer);
+
     }
 
     private void startAniamtion() {
@@ -234,13 +237,13 @@ public class AnswerQuestionsActivity extends AppCompatActivity implements View.O
             //Log.d(TAG, "Bạn trả lời đúng rồi");
             chuyenCauHoi();
             soCauTraLoiDung++;
-
         } else {
             Toast.makeText(this, "Bạn trả lời sai rồi", Toast.LENGTH_SHORT).show();
             //Log.d(TAG, "Bạn trả lời sai rồi");
             chuyenCauHoi();
             soCauTraLoiDung = 0;
         }
+        textViewSequenceAnswer.setText("Số câu trả lời đúng liên tiếp: " + soCauTraLoiDung );
     }
 
     private void chuyenCauHoi() {

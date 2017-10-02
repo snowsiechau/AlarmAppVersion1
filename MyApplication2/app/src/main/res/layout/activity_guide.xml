@@ -209,7 +209,7 @@ Câu 5 Trả lời đúng ->
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="8dp"
-                android:text="Chỉnh cầu hình cho báo thức"
+                android:text="Chỉnh cấu hình cho báo thức"
                 android:textColor="@color/colorTextWhite"
                 app:layout_constraintBottom_toTopOf="@+id/guideline6"
                 app:layout_constraintLeft_toRightOf="@+id/imageView3"
