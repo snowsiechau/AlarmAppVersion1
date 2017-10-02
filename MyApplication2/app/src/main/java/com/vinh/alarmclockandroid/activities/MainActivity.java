@@ -43,6 +43,7 @@ import java.util.SimpleTimeZone;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     Button btnStart;
     Button btnStop;
+
     TextView tvTimePicker;
     TimePicker timePicker;
     Calendar calendar;
@@ -71,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 //        DatabaseHandle.getInstance(this).insertTable();
 
-        Log.d("list", "onCreate: " + DatabaseHandle.getInstance(this).getListGioBaoThuc().size());
+        //Log.d("list", "onCreate: " + DatabaseHandle.getInstance(this).getListGioBaoThuc().size());
 
         loadUI();
 

@@ -30,8 +30,11 @@ public class KhoiDong extends AppCompatActivity {
     //Button batdau_btn;
     ImageView batdau_iv, btn_xoa;
     Intent intent;
+    Intent intentGuide;
     TextView tvAlarmTime;
     TextView tvTopic;
+
+    ImageView buttonGuide;
 
     boolean isOnline = false;
 
@@ -43,6 +46,7 @@ public class KhoiDong extends AppCompatActivity {
         quizList = DatabaseHandle.getInstance(this).getListGioBaoThuc();
 
         intent = new Intent(getApplicationContext(), MainActivity.class);
+        intentGuide = new Intent(getApplicationContext(), GuideActivity.class);
 
         batdau_iv = (ImageView) findViewById(R.id.iv_setting_blue_icon);
         //switch on
@@ -103,6 +107,13 @@ public class KhoiDong extends AppCompatActivity {
 
         tvAlarmTime = (TextView) findViewById(R.id.tv_alarmtime);
         tvTopic = (TextView) findViewById(R.id.tv_topic);
+        buttonGuide = (ImageView) findViewById(R.id.bt_guide);
+        buttonGuide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(intentGuide);
+            }
+        });
 
 //
 //        String gio = String.valueOf(quizList.get(0).getHour());

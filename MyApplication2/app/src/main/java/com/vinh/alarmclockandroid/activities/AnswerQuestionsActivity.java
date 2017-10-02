@@ -112,10 +112,10 @@ public class AnswerQuestionsActivity extends AppCompatActivity implements View.O
         boqua_btn.setEnabled(false);
 
 
-        countDownBoQua = new CountDownTimer(15000, 1000) {
+        countDownBoQua = new CountDownTimer(11000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-                boqua_btn.setText("Bỏ qua(15 giây)");
+                boqua_btn.setText("Bỏ qua(10 giây)");
                 int soGiayBoQua = (int) millisUntilFinished / 1000;
                 boqua_btn.setText(String.format("Bỏ qua(%s giây)", soGiayBoQua));
             }
