@@ -80,7 +80,7 @@ public class KhoiDong extends AppCompatActivity {
                     layoutAlarmInfo.setVisibility(View.INVISIBLE);
                     isOnline = true;
 
-                    if(AlarmHandle.pendingIntent != null) {
+                    if (AlarmHandle.pendingIntent != null) {
                         AlarmHandle.pendingIntent.cancel();
                     }
                 }
@@ -95,7 +95,8 @@ public class KhoiDong extends AppCompatActivity {
                     AlarmHandle.pendingIntent.cancel();
                 }
                 DatabaseHandle.getInstance(getApplicationContext()).deleteTable();
-                tvAlarmTime.setText("NO Alarm !");
+                tvAlarmTime.setText("No Alarm !");
+                tvAlarmTime.setTextSize(36);
                 tvTopic.setText("");
             }
         });
@@ -131,11 +132,11 @@ public class KhoiDong extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         quizList = DatabaseHandle.getInstance(this).getListGioBaoThuc();
-        String gio ="";
-        String phut ="";
-        if (quizList.size()!= 0) {
-             gio = String.valueOf(quizList.get(0).getHour());
-             phut = String.valueOf(quizList.get(0).getMinute());
+        String gio = "";
+        String phut = "";
+        if (quizList.size() != 0) {
+            gio = String.valueOf(quizList.get(0).getHour());
+            phut = String.valueOf(quizList.get(0).getMinute());
 
             if (quizList.get(0).getHour() < 10) {
                 gio = "0" + gio;
@@ -150,11 +151,11 @@ public class KhoiDong extends AppCompatActivity {
             tvAlarmTime.setText(gio + " : " + phut);
             String topic;
 
-            if (quizList.get(0).getTopic() == 1){
+            if (quizList.get(0).getTopic() == 1) {
                 topic = "Java";
-            }else if (quizList.get(0).getTopic() == 2){
+            } else if (quizList.get(0).getTopic() == 2) {
                 topic = "Đố vui";
-            }else {
+            } else {
                 topic = "IQ";
             }
             tvTopic.setText(topic);

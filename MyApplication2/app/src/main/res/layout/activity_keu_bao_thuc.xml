@@ -15,22 +15,13 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Trả lời câu hỏi để tắt báo thức đê emeiiiiiii"
+            android:text="Trả lời 3 câu hỏi đúng liên tiếp để tắt được Chuông báo thức"
             android:textColor="#f000"
             android:textSize="20sp"
             android:gravity="center_horizontal"
             android:padding="20dp"
-            android:fontFamily="serif"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Kéo xuống để trả lời câu hỏi"
-            android:textColor="#f000"
-            android:textSize="14sp"
-            android:gravity="center_horizontal"
-            android:layout_marginBottom="10dp"
-            android:fontFamily="serif"/>
-
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"/>
 
         <pl.droidsonroids.gif.GifTextView
             android:layout_width="match_parent"
@@ -48,7 +39,6 @@
             android:textColor="#fff"
             android:layout_gravity="center_horizontal"
             android:backgroundTint="#002856"/>
-
 
     </LinearLayout>
 </ScrollView>

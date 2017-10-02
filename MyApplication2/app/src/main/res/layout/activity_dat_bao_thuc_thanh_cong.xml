@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView android:layout_height="match_parent"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
     android:background="#e1c627">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -15,18 +15,17 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Đặt báo thức thành công"
-            android:textColor="#f000"
-            android:textSize="60sp"
+            android:fontFamily="serif"
             android:gravity="center_horizontal"
             android:padding="20dp"
-            android:fontFamily="serif"/>
+            android:text="Đặt báo thức thành công"
+            android:textColor="#f000"
+            android:textSize="60sp" />
 
         <pl.droidsonroids.gif.GifTextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/datbaothucthanhcong"
-            />
+            android:background="@drawable/datbaothucthanhcong" />
 
 
     </LinearLayout>

@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -47,6 +48,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Calendar calendar;
     AlarmManager alarmManager;
     Spinner spSubject;
+
+    ImageView iv_acceptAlarm1;
+    ImageView iv_acceptAlarm2;
+    ImageView iv_backAlarm1;
+    ImageView iv_backAlarm2;
 
     Intent intent;
 
@@ -81,6 +87,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         intent = new Intent(MainActivity.this, AlarmReceiver.class);
 
         btnStart.setOnClickListener(this);
+        iv_acceptAlarm1.setOnClickListener(this);
+        iv_acceptAlarm2.setOnClickListener(this);
+        iv_backAlarm1.setOnClickListener(this);
+        iv_backAlarm2.setOnClickListener(this);
 
         final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -93,7 +103,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         };
 
         intentDatBaoThucThanhCong = new Intent(getApplicationContext(), DatBaoThucThanhCong.class);
-
 
 
     }
@@ -146,27 +155,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnStart = (Button) findViewById(R.id.bt_start);
         tvTimePicker = (TextView) findViewById(R.id.tv_timePicker);
         timePicker = (TimePicker) findViewById(R.id.timepicker);
+
+        iv_acceptAlarm1 = (ImageView) findViewById(R.id.bt_acceptAlarm1);
+        iv_acceptAlarm2 = (ImageView) findViewById(R.id.bt_acceptAlarm2);
+        iv_backAlarm1 = (ImageView) findViewById(R.id.bt_backAlarm1);
+        iv_backAlarm2 = (ImageView) findViewById(R.id.bt_backAlarm2);
 //        btnStop = (Button) findViewById(R.id.bt_stop);
 
         quizList = DatabaseHandle.getInstance(this).getListGioBaoThuc();
         String gio = "";
         String phut = "";
-if (quizList.size() != 0) {
-    gio = String.valueOf(quizList.get(0).getHour());
-    phut = String.valueOf(quizList.get(0).getMinute());
+        if (quizList.size() != 0) {
+            gio = String.valueOf(quizList.get(0).getHour());
+            phut = String.valueOf(quizList.get(0).getMinute());
 
-    if (quizList.get(0).getHour() < 10) {
-        gio = "0" + gio;
-    }
+            if (quizList.get(0).getHour() < 10) {
+                gio = "0" + gio;
+            }
 
-    if (quizList.get(0).getMinute() < 10) {
-        phut = "0" + phut;
-    }
+            if (quizList.get(0).getMinute() < 10) {
+                phut = "0" + phut;
+            }
 
-    if (quizList.size() != 0) {
-        tvTimePicker.setText(gio + " : " + phut);
-    }
-}
+            if (quizList.size() != 0) {
+                tvTimePicker.setText(gio + " : " + phut);
+            }
+        }
 
     }
 
@@ -194,8 +208,8 @@ if (quizList.size() != 0) {
 
                 //khac voi intent thuong la no se luon ton tai ke ca khi ung dung ket thuc
 
-
                 tvTimePicker.setText(gio_sting + " : " + phut_string);
+
                 //toast ra man hinh
                 //xu li lay time to wake up:
                 int realHours = Calendar.getInstance().getTime().getHours();
@@ -221,17 +235,17 @@ if (quizList.size() != 0) {
                     minuteTimewakeup_string = "0" + minuteTimewakeup_string;
                 }
 
-                if(totalMinuteTimewakeup ==0){
-                    Toast.makeText(MainActivity.this,"Time to Wake up: 24 hours!",Toast.LENGTH_LONG).show();
-                }else{
+                if (totalMinuteTimewakeup == 0) {
+                    Toast.makeText(MainActivity.this, "Time to Wake up: 24 hours!", Toast.LENGTH_LONG).show();
+                } else {
                     Toast.makeText(MainActivity.this, "Time to Wake up: " + hourTimewakeup_string + " hours, " + minuteTimewakeup_string + " minutes ", Toast.LENGTH_SHORT).show();
                 }
 
-                setAlarmDate();
-                DatabaseHandle.getInstance(this).deleteTable();
-                DatabaseHandle.getInstance(this).insertTable(timePicker.getCurrentHour(), timePicker.getCurrentMinute(), 1, topic);
-
-                startActivity(intentDatBaoThucThanhCong);
+//                setAlarmDate();
+//                DatabaseHandle.getInstance(this).deleteTable();
+//                DatabaseHandle.getInstance(this).insertTable(timePicker.getCurrentHour(), timePicker.getCurrentMinute(), 1, topic);
+//
+//                startActivity(intentDatBaoThucThanhCong);
 
 
                 break;
@@ -240,6 +254,21 @@ if (quizList.size() != 0) {
 //                DatabaseHandle.getInstance(this).deleteTable();
 //                break;
 
+            case R.id.bt_acceptAlarm1:
+            case R.id.bt_acceptAlarm2:
+
+                setAlarmDate();
+                DatabaseHandle.getInstance(this).deleteTable();
+                DatabaseHandle.getInstance(this).insertTable(timePicker.getCurrentHour(), timePicker.getCurrentMinute(), 1, topic);
+                super.onBackPressed();
+                //startActivity(intentDatBaoThucThanhCong);
+                break;
+
+            case R.id.bt_backAlarm1:
+            case R.id.bt_backAlarm2:
+                super.onBackPressed();
+
+                break;
             default:
                 break;
         }
