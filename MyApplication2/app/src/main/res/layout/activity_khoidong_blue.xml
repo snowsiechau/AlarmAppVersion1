@@ -11,8 +11,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Super Alarm"
-        android:textSize="30sp"
+        android:textSize="26sp"
         android:textColor="#fff"
+        android:textStyle="bold"
+        android:textAllCaps="true"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         android:layout_marginRight="8dp"
@@ -20,7 +22,8 @@
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="8dp" />
+        android:layout_marginTop="8dp"
+        android:fontFamily="serif-monospace"/>
 
 
     <android.support.constraint.Guideline
@@ -117,7 +120,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_alarmtime"
                 android:layout_margin="8dp"
-                android:text="Lĩnh vực: Java"
+                android:text="Topic: Java"
                 android:textColor="@color/colorGray"
                 android:textSize="18sp" />
 

@@ -169,7 +169,7 @@ public class KhoiDong extends AppCompatActivity {
             } else {
                 topic = "IQ";
             }
-            tvTopic.setText(topic);
+            tvTopic.setText("Topic: "+topic);
         }
     }
 }
