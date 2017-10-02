@@ -260,6 +260,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 setAlarmDate();
                 DatabaseHandle.getInstance(this).deleteTable();
+
                 DatabaseHandle.getInstance(this).insertTable(timePicker.getCurrentHour(), timePicker.getCurrentMinute(), 1, topic);
                 super.onBackPressed();
                 //startActivity(intentDatBaoThucThanhCong);

@@ -50,7 +50,8 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="8dp"
-                android:text="Ứng dụng được xây dựng giúp bạn buộc phải thức giấc theo kế hoạch"
+                android:text="Ứng dụng được xây dựng giúp bạn buộc phải thức giấc theo kế hoạch.
+Báo thức sẽ lặp lại hàng ngày vào đúng khung giờ!"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

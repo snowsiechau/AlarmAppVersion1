@@ -26,6 +26,7 @@ import android.widget.Toast;
 import com.vinh.alarmclockandroid.R;
 import com.vinh.alarmclockandroid.database.DatabaseHandle;
 import com.vinh.alarmclockandroid.database.QuizModel;
+import com.vinh.alarmclockandroid.database_giobaothuc.GioBaoThucModel;
 
 import org.w3c.dom.Text;
 
@@ -35,8 +36,6 @@ import java.util.Random;
 
 
 public class AnswerQuestionsActivity extends AppCompatActivity implements View.OnClickListener {
-
-
 
 
     private static final String TAG = AnswerQuestionsActivity.class.toString();
@@ -52,6 +51,9 @@ public class AnswerQuestionsActivity extends AppCompatActivity implements View.O
 
     List<QuizModel> quizList = new ArrayList<>();
     //ArrayList<Integer> arrayListID;
+    List<QuizModel> gioBaoThucModelList = new ArrayList<>();
+
+
     public int soCauTraLoiDung = 0;
 
     public boolean kiemTra = true;
@@ -69,7 +71,7 @@ public class AnswerQuestionsActivity extends AppCompatActivity implements View.O
         setContentView(R.layout.activity_answer_questions_fake);
 
         quizList = DatabaseHandle.getInstance(this).getListQuiz();
-
+        gioBaoThucModelList = DatabaseHandle.getInstance(this).getListQuiz();
 //
 
 
@@ -150,20 +152,21 @@ public class AnswerQuestionsActivity extends AppCompatActivity implements View.O
 
     private void loadData() {
 
-        int topic = com.vinh.alarmclockandroid.database_giobaothuc.DatabaseHandle.getInstance(this).getListGioBaoThuc().get(0).getTopic();
+        //int topic = com.vinh.alarmclockandroid.database_giobaothuc.DatabaseHandle.getInstance(this).getListGioBaoThuc().get(0).getTopic();
+        int topic = gioBaoThucModelList.get(0).getJob();
 
         Random rand = new Random();
-         int randomNumber = rand.nextInt(quizList.size() - 1) + 0;
+        int randomNumber = rand.nextInt(quizList.size() - 1) + 0;
 
         do {
             randomNumber = rand.nextInt(quizList.size() - 1) + 0;
         } while (quizList.get(randomNumber).getJob() != topic);
 
-        quizModel = quizList.get(randomNumber - 1);
+        quizModel = quizList.get(randomNumber);
 
-        Log.d(TAG, "loadData: " + quizModel.getQuestion());
+        //Log.d(TAG, "loadData: " + quizModel.getQuestion());
 
-        Log.d("topic", "topic: " + topic);
+        //Log.d("topic", "topic: " + topic);
 
         noidungcauhoi_tv.setText(quizModel.getQuestion());
 
@@ -224,17 +227,17 @@ public class AnswerQuestionsActivity extends AppCompatActivity implements View.O
             cauTraLoi = 4;
         }
 
-        Log.d(TAG, "xulyCauTraLoi: " + quizModel.getRealalswer());
+        //Log.d(TAG, "xulyCauTraLoi: " + quizModel.getRealalswer());
 
         if (cauTraLoi == quizModel.getRealalswer()) {
             Toast.makeText(this, "Bạn trả lời đúng rồi", Toast.LENGTH_SHORT).show();
-            Log.d(TAG, "Bạn trả lời đúng rồi");
+            //Log.d(TAG, "Bạn trả lời đúng rồi");
             chuyenCauHoi();
             soCauTraLoiDung++;
 
         } else {
             Toast.makeText(this, "Bạn trả lời sai rồi", Toast.LENGTH_SHORT).show();
-            Log.d(TAG, "Bạn trả lời sai rồi");
+            //Log.d(TAG, "Bạn trả lời sai rồi");
             chuyenCauHoi();
             soCauTraLoiDung = 0;
         }
@@ -245,25 +248,26 @@ public class AnswerQuestionsActivity extends AppCompatActivity implements View.O
         audioManager = (AudioManager) getSystemService(MainActivity.AUDIO_SERVICE);
         audioManager.setStreamVolume(audioManager.STREAM_MUSIC, 15, AudioManager.FLAG_ALLOW_RINGER_MODES);
 
-        Random rand = new Random();
-        int n;
-        int job = 1;
+        //Random rand = new Random();
+        // int n;
+        // int job = 1;
+        // int job = gioBaoThucModelList.get(0).getJob();
 
-        do {
-            n = rand.nextInt(15) + 0;
-        } while (quizList.get(n).getJob() != job);
+//        while(true){
+//            n = rand.nextInt(15);
+//            if(quizList.get(n).getJob() == job){
+//
+//            }
+//        }
+//
+//        do {
+//            n = rand.nextInt(15) + 0;
+//        } while (quizList.get(n).getJob() != job);
 
         countDownBoQua.cancel();
         countDownTraLoi.cancel();
         startCountDownTimer();
         startAniamtion();
-
-//        noidungcauhoi_tv.setText(quizModel.getQuestion());
-//
-//        dapanA_rb.setText(quizModel.getAnswera());
-//        dapanB_rb.setText(quizModel.getAnswerb());
-//        dapanC_rb.setText(quizModel.getAnswerc());
-//        dapanD_rb.setText(quizModel.getAnswerd());
 
         loadData();
 
