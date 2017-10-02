@@ -29,39 +29,10 @@
         android:layout_marginLeft="16dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
-        android:src="@drawable/image_clock"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline"
         android:layout_marginBottom="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/textClock"
         app:layout_constraintVertical_bias="0.451" />
-
-
-    <!--<at.markushi.ui.CircleButton-->
-    <!--android:id="@+id/imageButton"-->
-    <!--android:layout_width="50dp"-->
-    <!--android:layout_height="50dp"-->
-    <!--android:src="@drawable/icon_setting_white"-->
-    <!--app:cb_color="#99CC00"-->
-    <!--app:cb_pressedRingWidth="8dip"-->
-    <!--app:layout_constraintTop_toTopOf="@+id/guideline"-->
-    <!--android:layout_marginTop="16dp"-->
-    <!--android:layout_marginLeft="16dp"-->
-    <!--app:layout_constraintLeft_toLeftOf="parent"-->
-    <!--android:layout_marginStart="16dp" />-->
-
-    <!--<at.markushi.ui.CircleButton-->
-    <!--android:id="@+id/circleButton"-->
-    <!--android:layout_width="50dp"-->
-    <!--android:layout_height="50dp"-->
-    <!--android:layout_marginRight="16dp"-->
-    <!--android:layout_marginTop="16dp"-->
-    <!--android:src="@drawable/icon_add"-->
-    <!--app:cb_color="#99CC00"-->
-    <!--app:cb_pressedRingWidth="8dip"-->
-    <!--app:layout_constraintRight_toRightOf="parent"-->
-    <!--app:layout_constraintTop_toTopOf="@+id/guideline"-->
-    <!--android:layout_marginEnd="16dp" />-->
 
     <RelativeLayout
         android:layout_width="0dp"

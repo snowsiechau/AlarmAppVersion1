@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         };
 
-        intentDatBaoThucThanhCong = new Intent(getApplicationContext(), DatBaoThucThanhCong.class);
+        //intentDatBaoThucThanhCong = new Intent(getApplicationContext(), DatBaoThucThanhCong.class);
 
 
     }
